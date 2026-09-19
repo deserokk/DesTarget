@@ -1,0 +1,24 @@
+[
+  {
+    "Author": "deserokk",
+    "Name": "DesTarget",
+    "InternalName": "DesTarget",
+    "AssemblyVersion": "0.2.0.0",
+    "TestingAssemblyVersion": "0.2.0.0",
+    "Description": "Smart targetting system using camera and range prioritization. Works in all content.",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/deserokk/DesTarget",
+    "Tags": [
+      "target",
+      "targeting",
+      "tab",
+      "pvp"
+    ],
+    "DalamudApiLevel": 15,
+    "Punchline": "Target what you're looking at.",
+    "DownloadLinkInstall": "https://raw.githubusercontent.com/deserokk/DesTarget/main/repo/DesTarget/latest.zip",
+    "DownloadLinkUpdate": "https://raw.githubusercontent.com/deserokk/DesTarget/main/repo/DesTarget/latest.zip",
+    "DownloadLinkTesting": "https://raw.githubusercontent.com/deserokk/DesTarget/main/repo/DesTarget/latest.zip",
+    "DownloadCount": 0
+  }
+]

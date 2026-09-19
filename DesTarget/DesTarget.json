@@ -1,0 +1,16 @@
+{
+  "Author": "deserokk",
+  "Name": "DesTarget",
+  "InternalName": "DesTarget",
+  "Description": "Smart targetting system using camera and range prioritization. Works in all content.",
+  "ApplicableVersion": "any",
+  "Tags": [
+    "target",
+    "targeting",
+    "tab",
+    "pvp"
+  ],
+  "RepoUrl": "https://github.com/deserokk/DesTarget",
+  "IconUrl": "",
+  "Punchline": "Target what you're looking at."
+}

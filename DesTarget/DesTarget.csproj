@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
+
+	<PropertyGroup>
+		<Product>DesTarget</Product>
+		<AssemblyName>DesTarget</AssemblyName>
+		<Version>0.2.0</Version>
+		<Authors>deserokk</Authors>
+		<Description>Smart targetting system using camera and range prioritization. Works in all content.</Description>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<DocumentationFile>obj\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+	</PropertyGroup>
+
+	<Target Name="DropDocXmlBeforePackaging" AfterTargets="Build" BeforeTargets="DefaultDalamudPackagerRelease">
+		<Delete Files="$(OutputPath)$(AssemblyName).xml" />
+	</Target>
+
+</Project>
