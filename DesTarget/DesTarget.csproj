@@ -4,7 +4,7 @@
 	<PropertyGroup>
 		<Product>DesTarget</Product>
 		<AssemblyName>DesTarget</AssemblyName>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<Authors>deserokk</Authors>
 		<Description>Smart targetting system using camera and range prioritization. Works in all content.</Description>
 		<Nullable>enable</Nullable>

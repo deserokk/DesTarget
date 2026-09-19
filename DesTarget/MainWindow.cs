@@ -220,6 +220,11 @@ internal sealed class MainWindow: Window {
 
 		ImGui.SameLine();
 		ImGui.TextUnformatted("Use the game's targetting hotkey");
+
+		if (take && Keybinds.LastRefusal.Length > 0) {
+			ImGui.TextColored(Theme.Negative, "Couldn't grab the game's key.");
+			if (ImGui.IsItemHovered()) ImGui.SetTooltip(Keybinds.LastRefusal);
+		}
 	}
 
 	private bool askRestore;

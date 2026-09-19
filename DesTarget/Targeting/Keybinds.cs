@@ -23,29 +23,19 @@ internal static unsafe class Keybinds {
 
 	private const int CycleRow = 366;
 
-	private const int PartyRow = 370;
+	private const int ExpectedRows = 679;
 
 	private static bool Check(Span<Keybind> span, out string why) {
-
-		if (span.Length <= PartyRow + 7) {
-			why = $"the keybind table is {span.Length} rows, shorter than expected";
-			return false;
-		}
-
-		var matched = 0;
-		for (var i = 0; i < 8; i++) {
-			var keys = span[PartyRow + i].KeySettings;
-			if (keys.Length > 0 && keys[0].Key == (SeVirtualKey)((int)SeVirtualKey.F1 + i)) matched++;
-		}
-
-		if (matched >= 6) {
+		if (span.Length == ExpectedRows) {
 			why = string.Empty;
 			return true;
 		}
 
-		why = $"only {matched} of the 8 party-list keys are where they should be, so the table has moved";
+		why = $"the keybind table has {span.Length} rows, not {ExpectedRows}, so a patch may have moved it";
 		return false;
 	}
+
+	internal static string LastRefusal { get; private set; } = string.Empty;
 
 	internal static bool Apply(out string said) {
 		said = string.Empty;
@@ -74,6 +64,7 @@ internal static unsafe class Keybinds {
 
 			if (!Check(span, out var why)) {
 				said = "refused: " + why;
+				LastRefusal = why;
 				Plugin.Log.Warning($"DesTarget: keybind takeover refused, {why}");
 				return false;
 			}
@@ -101,6 +92,7 @@ internal static unsafe class Keybinds {
 				keys[k].KeyModifier = KeyModifierFlag.None;
 			}
 
+			LastRefusal = string.Empty;
 			said = $"took {Name(taken, mod)} from the game.";
 			Plugin.Log.Information($"DesTarget: took the cycle keybind ({Name(taken, mod)}).");
 			return true;
