@@ -90,14 +90,6 @@ internal sealed class MainWindow: Window {
 		ImGui.SameLine();
 		ImGui.TextUnformatted("Ignore target options behind you");
 
-		if (ignore) {
-			var degrees = config.BehindDegrees;
-			ImGui.SetNextItemWidth(180f);
-			if (ImGui.SliderFloat("behind starts at##behinddeg", ref degrees, 70f, 180f, "%.0f deg"))
-				config.BehindDegrees = degrees;
-			if (ImGui.IsItemDeactivatedAfterEdit()) config.Save();
-		}
-
 		ImGui.EndTabItem();
 	}
 
@@ -175,6 +167,11 @@ internal sealed class MainWindow: Window {
 		Slider("Close enough (PvP)", config.HealthTolerancePvp, 0f, 0.5f, "%.2f",
 			"Same, in PvP.",
 			v => config.HealthTolerancePvp = v);
+
+		Section("Behind you");
+		Slider("Behind starts at", config.BehindDegrees, 70f, 180f, "%.0f deg",
+			"How far round from straight ahead counts as behind, for the ignore behind switch. 90 is your side.",
+			v => config.BehindDegrees = v);
 
 		Section("Cycling");
 		Slider("Worth cycling to above", config.RelevantFloor, 0f, 0.6f, "%.2f",
